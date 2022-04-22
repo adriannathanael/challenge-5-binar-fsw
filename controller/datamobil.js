@@ -22,10 +22,17 @@ module.exports = class {
     static getAllMobil(req, res, next) {
         DataMobils.findAll()
         .then((result) => {
-        res.status(200).send({
-            status: 200,
-            data: result
-           })
+
+        const mobil = [...result]
+        // res.status(200).send({
+        //     status: 200,
+        //     data: mobil
+        //    })
+
+        
+
+
+        res.render('index', {mobil})
         }).catch((err) => {
             res.status(400).send(err)
         });
